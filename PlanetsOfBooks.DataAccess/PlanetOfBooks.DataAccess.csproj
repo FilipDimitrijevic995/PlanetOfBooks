@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Migrations\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\PlanetOfBooks.Models\PlanetOfBooks.Models.csproj" />
     <ProjectReference Include="..\PlanetOfBooks.Utility\PlanetOfBooks.Utility.csproj" />
   </ItemGroup>
