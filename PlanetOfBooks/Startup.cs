@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PlanetOfBooks.DataAccess.Data;
+using PlanetOfBooks.DataAccess.Repository;
+using PlanetOfBooks.DataAccess.Repository.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +36,7 @@ namespace PlanetOfBooks
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddControllersWithViews();
         }
 
