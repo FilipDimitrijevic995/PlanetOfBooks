@@ -150,21 +150,18 @@
     <partial name="_ValidationScriptsPartial" />
     <script src="https://cdn.tiny.cloud/1/2l1hmjgori3kztcx2hvnountdl5hhd4ajno2itp8fv7nxu8h/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
-<script>
-
-    tinymce.init({
-        selector: 'textarea',
-        plugins: 'lists',
-        menubar: 'file edit format'
-    });
-
-    function validateInput() {
-        if (document.getElementById("uploadBox").value == "") {
-            swal("Error", "Please select an image", "error");
-            return false;
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'lists',
+            menubar: 'file edit format'
+        });
+        function validateInput() {
+            if (document.getElementById("uploadBox").value == "") {
+                swal("Error", "Please select an image", "error");
+                return false;
+            }
+            return true;
         }
-        return true;
-    }
-
-</script>
+    </script>
 } 
