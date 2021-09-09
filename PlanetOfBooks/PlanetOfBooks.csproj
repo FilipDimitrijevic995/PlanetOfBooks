@@ -22,4 +22,8 @@
     <ProjectReference Include="..\PlanetsOfBooks.DataAccess\PlanetOfBooks.DataAccess.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\products\" />
+  </ItemGroup>
+
 </Project>
