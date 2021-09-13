@@ -1,5 +1,6 @@
 ﻿using PlanetOfBooks.DataAccess.Data;
 using PlanetOfBooks.DataAccess.Repository.IRepository;
+using PlanetOfBooks.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +18,13 @@ namespace PlanetOfBooks.DataAccess.Repository
             _db = db;
             Category = new CategoryRepository(_db);
             Company = new CompanyRepository(_db);
+            ApplicationUser = new ApplicationUserRepository(_db);
             CoverType = new CoverTypeRepository(_db);
             Product = new ProductRepository(_db);
             SP_Call = new SP_Call(_db);
         }
 
+        public IApplicationUserRepository ApplicationUser { get; private set; }
         public ICategoryRepository Category { get; private set; }
         public ICompanyRepository Company { get; private set; }
         public ICoverTypeRepository CoverType { get; private set; }
