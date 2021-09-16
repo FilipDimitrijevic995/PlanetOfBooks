@@ -157,7 +157,7 @@ namespace PlanetOfBooks.Areas.Identity.Pages.Account
                         {
                             await _userManager.AddToRoleAsync(user, SD.Role_User_Comp);
                         }
-                        await _userManager.AddToRoleAsync(user, SD.Role_Admin);
+                        await _userManager.AddToRoleAsync(user, user.Role);
                     }
 
                     //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

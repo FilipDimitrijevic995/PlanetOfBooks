@@ -44,6 +44,7 @@ namespace PlanetOfBooks.Areas.Admin.Controllers
                     };
                 }
             }
+
             return Json(new { data = userList });
         }
         #endregion
