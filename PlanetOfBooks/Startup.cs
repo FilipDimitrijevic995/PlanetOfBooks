@@ -46,6 +46,11 @@ namespace PlanetOfBooks
                 options.LogoutPath = $"/Identity/Account/Logout";
                 options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
             });
+            services.AddAuthentication().AddFacebook(options =>
+            {
+                options.AppId = "1243200562813233";
+                options.AppSecret = "6e5b94cc25da099a45fdda278012f1e1";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
