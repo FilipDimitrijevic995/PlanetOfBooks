@@ -51,6 +51,11 @@ namespace PlanetOfBooks
                 options.AppId = "1243200562813233";
                 options.AppSecret = "6e5b94cc25da099a45fdda278012f1e1";
             });
+            services.AddAuthentication().AddGoogle(options =>
+            {
+                options.ClientId = "328110837234-todhn36vs60rl3td46f29kajb78ie8g1.apps.googleusercontent.com";
+                options.ClientSecret = "V7LZGkzG0d74lw52cXrGocZM";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
