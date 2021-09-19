@@ -44,15 +44,23 @@ namespace PlanetOfBooks.Areas.Customer.Controllers
                 var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
                 CartObject.ApplicationUserId = claim.Value;
 
-                ShoppingCart carFromDb = _unitOfWork.ShoppingCart.GetFirstOrDefault(
+                ShoppingCart cartFromDb = _unitOfWork.ShoppingCart.GetFirstOrDefault(
                         u => u.ApplicationUserId == CartObject.ApplicationUserId && u.ProductId == CartObject.ProductId, includeProperties: "Product"
                     );
 
-                if (carFromDb == null)
-                { 
+                if (cartFromDb == null)
+                {
                     // no records exists in database for that product for that user
-
+                    _unitOfWork.ShoppingCart.Add(CartObject);
                 }
+                else
+                {
+                    cartFromDb.Count += CartObject.Count;
+                    _unitOfWork.ShoppingCart.Update(cartFromDb);
+                }
+                _unitOfWork.Save();
+
+                return RedirectToAction(nameof(Index));
             }
             else
             {
