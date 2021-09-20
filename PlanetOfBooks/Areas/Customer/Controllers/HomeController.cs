@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PlanetOfBooks.DataAccess.Repository.IRepository;
 using PlanetOfBooks.Models;
 using PlanetOfBooks.Models.ViewModels;
+using PlanetOfBooks.Utility;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -59,6 +61,14 @@ namespace PlanetOfBooks.Areas.Customer.Controllers
                     _unitOfWork.ShoppingCart.Update(cartFromDb);
                 }
                 _unitOfWork.Save();
+
+                var count = _unitOfWork.ShoppingCart
+                    .GetAll(c => c.ApplicationUserId == CartObject.ApplicationUserId)
+                    .ToList().Count();
+
+                //HttpContext.Session.SetObject(SD.ssShopingCart, CartObject);
+                HttpContext.Session.SetInt32(SD.ssShopingCart, count);
+
 
                 return RedirectToAction(nameof(Index));
             }
