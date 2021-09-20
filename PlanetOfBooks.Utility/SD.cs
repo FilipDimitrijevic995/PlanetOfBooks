@@ -20,7 +20,7 @@ namespace PlanetOfBooks.Utility
         public const string Role_Admin = "Admin";
         public const string Role_Employee = "Employee";
 
-        public const string ssShopingCart = "Shopping Cart Session";
+        public const string ssShoppingCart = "Shopping Cart Session";
 
         public static double GetPriceBasedOnQuantity(double quantity, double price, double price50, double price100)
         {
