@@ -56,6 +56,11 @@ namespace PlanetOfBooks
                 options.ClientId = "328110837234-todhn36vs60rl3td46f29kajb78ie8g1.apps.googleusercontent.com";
                 options.ClientSecret = "V7LZGkzG0d74lw52cXrGocZM";
             });
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -76,7 +81,7 @@ namespace PlanetOfBooks
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseSession();
             app.UseAuthentication();
             app.UseAuthorization();
 
