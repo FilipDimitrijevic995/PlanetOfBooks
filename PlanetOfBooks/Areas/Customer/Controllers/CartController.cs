@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace PlanetOfBooks.Areas.Customer.Controllers
 {
+    [Area("Customer")]
     public class CartController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
