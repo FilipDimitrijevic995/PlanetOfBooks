@@ -117,8 +117,6 @@ namespace PlanetOfBooks.Areas.Customer.Controllers
                                                             includeProperties: "Product")
             };
 
-
-
             ShoppingCartVM.OrderHeader.ApplicationUser = _unitOfWork.ApplicationUser
                                                             .GetFirstOrDefault(c => c.Id == claim.Value,
                                                                                 includeProperties: "Company");
