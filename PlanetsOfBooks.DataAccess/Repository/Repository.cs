@@ -85,7 +85,7 @@ namespace PlanetOfBooks.DataAccess.Repository
             dbSet.Remove(entity);
         }
 
-        public void Remove(IEnumerable<T> entity)
+        public void RemoveRange(IEnumerable<T> entity)
         {
             dbSet.RemoveRange(entity);
         }
